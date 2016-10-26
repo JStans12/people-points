@@ -3,6 +3,7 @@ class User < ApplicationRecord
   validates_confirmation_of :password
   validates :name, presence: true, uniqueness: true
   validates :points, presence: true
+  has_many :endorsements
   has_many :user_rewards
   has_many :rewards, through: :user_rewards
 end

@@ -35,5 +35,10 @@ RSpec.describe User, type: :model do
       user = User.new(name: "joey", password: "password", points: 0)
       expect(user).to respond_to(:rewards)
     end
+
+    it "has many endorsements" do
+      user = User.new(name: "joey", password: "password", points: 0)
+      expect(user).to respond_to(:endorsements)
+    end
   end
 end
