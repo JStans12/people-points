@@ -1,0 +1,25 @@
+<% @users.each do |user| %>
+  <div class="col-sm-3">
+    <div class="person">
+      <div class= "container">
+
+        <h5 class="user-name"><%=user.name%></h5>
+        <div>
+          <%= image_tag(user.image_link || "baby_goat", height: 200, width: 200 ) %>
+        </div>
+
+        <div>
+          <p>
+            Points: <%= user.points %>
+          </p>
+          <p>Rewards:
+            <% user.rewards.each do |reward| %>
+              <%= image_tag(reward.image_link, height: 15, width: 15) %>
+            <% end %>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+<% end %>

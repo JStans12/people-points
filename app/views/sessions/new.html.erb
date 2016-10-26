@@ -1,0 +1,51 @@
+<div class="col-sm-6">
+  <div class="login-create">
+    <h3 style="padding: 10px; text-align: center;">Create New Account<h3>
+    <div class="create-acct">
+      <%= form_for @user do |f| %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-input" %>
+        <br>
+        <p>
+        <p>
+        <%= f.label :image_link %>
+        <%= f.text_field :image_link, class: "form-input" %>
+        <br>
+        <p>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-input" %>
+        <br>
+        <p>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-input" %>
+        <br>
+        <p>
+        <%= f.submit "Create Account" %>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="col-sm-6">
+  <div class="login-create">
+    <h3 style="padding: 10px; text-align: center;">Login<h3>
+    <div class="login">
+      <%= form_tag :login do %>
+
+        <%= label_tag :name %>
+        <%= text_field_tag :name, "", class: "form-input" %>
+        <br>
+        <p>
+        <p>
+        <%= label_tag :password %>
+        <%= password_field_tag :password, "", class: "form-input" %>
+        <br>
+        <p>
+        <%= submit_tag "Login" %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

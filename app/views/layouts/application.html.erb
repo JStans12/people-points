@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PeoplePoints</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <nav class="navbar navbar-default navbar-static-top site-header">
+    <div class="container">
+      <div class="navbar-header">
+        <h3 class="site-title"><%= link_to "People Points:", '/' %> Revolutionizing the way you give people points</h3>
+      </div>
+      <div id="navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+            <li><a class="logged-in"> Logged in as <%= current_user.name %></a></li>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Login / Create Account", login_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
+  <% end %>
+
+  <body>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
