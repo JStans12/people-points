@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20161026205335) do
     t.string   "password_digest"
     t.string   "image_link"
     t.integer  "points"
+    t.integer  "tokens"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

@@ -9,7 +9,7 @@ poop = Reward.create(name: "poop", image_link: "http://viralsocially.com/images/
 ruby = Reward.create(name: "ruby", image_link: "https://avatars2.githubusercontent.com/u/210414?v=3&s=400")
 
 USERS.each do |user|
-  User.create(name: user, password: "password", points: 10, rewards: [flower])
+  User.create(name: user, password: "password", points: 10, tokens: 0, rewards: [flower])
 end
 
 User.find_by(name: "Daniel").rewards << poop
