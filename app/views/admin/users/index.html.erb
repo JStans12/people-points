@@ -1,1 +1,41 @@
-stuff
+<% @users.each_with_index do |user, index| %>
+
+  <% if index % 4 == 0 %>
+    <div class="row">
+  <% end %>
+
+  <div class="col-sm-3" class="match-my-cols">
+    <div class="person">
+      <div class= "container">
+
+        <h5 class="user-name">
+        <%= link_to user.name, user %>
+        <%= link_to "Delete", user_path(user), method: :delete %>
+        </h5>
+
+        <div>
+          <%= image_tag(user.image_link || "baby_goat", height: 200, width: 200 ) %>
+        </div>
+
+        <div>
+
+          <p>
+            Points: <%= user.points %> Tokens: <%= user.tokens %>
+          </p>
+
+          <p class="rewards">Rewards:
+            <% user.rewards.each do |reward| %>
+              <%= image_tag(reward.image_link, height: 15, width: 15) %>
+            <% end %>
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% if index % 4 == 3 %>
+    </div>
+  <% end %>
+
+<% end %>

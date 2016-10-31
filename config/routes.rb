@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: redirect('/users')
-  resources :users, only: [:index, :show, :create, :update] do
+  resources :users, only: [:index, :show, :create, :update, :destroy] do
     resources :endorsements, only: [:new, :create]
   end
 
