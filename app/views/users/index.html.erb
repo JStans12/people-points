@@ -1,12 +1,18 @@
-<% @users.each do |user| %>
-  <div class="col-sm-3">
+
+<% @users.each_with_index do |user, index| %>
+
+  <% if index % 4 == 0 %>
+    <div class="row">
+  <% end %>
+
+  <div class="col-sm-3" class="match-my-cols">
     <div class="person">
       <div class= "container">
 
         <h5 class="user-name">
         <%= link_to user.name, user %>
         <% if user == current_user %>
-          <%= link_to "Redeem Points", "www.example.com", class: "btn" %>
+          <%= link_to "Redeem Points", user_path(user), method: :put, class: "btn" %>
         <% elsif current_user %>
           <%= link_to "Endorse", new_user_endorsement_path(user), class: "btn" %>
         <% end %>
@@ -22,7 +28,7 @@
             Points: <%= user.points %> Tokens: <%= user.tokens %>
           </p>
 
-          <p>Rewards:
+          <p class="rewards">Rewards:
             <% user.rewards.each do |reward| %>
               <%= image_tag(reward.image_link, height: 15, width: 15) %>
             <% end %>
@@ -32,4 +38,9 @@
       </div>
     </div>
   </div>
+
+  <% if index % 4 == 3 %>
+    </div>
+  <% end %>
+
 <% end %>

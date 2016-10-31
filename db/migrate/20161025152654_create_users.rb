@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :image_link
       t.integer :points
       t.integer :tokens
+      t.integer  "role", default: 0
 
       t.timestamps
     end

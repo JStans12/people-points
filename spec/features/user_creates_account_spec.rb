@@ -6,8 +6,8 @@ describe "user can create a new account" do
     visit '/login'
     fill_in 'user[name]', with: "Chad"
     fill_in 'user[image_link]', with: "https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg"
-    fill_in 'user[password]', with: 'password'
-    fill_in 'user[password_confirmation]', with: "password"
+    fill_in 'user[password]', with: 'P@ssw0rd'
+    fill_in 'user[password_confirmation]', with: "P@ssw0rd"
     click_on 'Create Account'
 
     expect(page).to have_link("Logout")

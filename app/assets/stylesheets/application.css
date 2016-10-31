@@ -22,6 +22,7 @@ body {
 
 .site-title {
   margin-bottom: 30px;
+  font-size: 20px;
 }
 
 .person {
@@ -52,4 +53,22 @@ body {
 
 .form-input {
   float: right;
+}
+
+.person {
+  word-wrap: break-word;
+}
+
+.rewards {
+  width: 225px;
+}
+
+.success {
+  background-color: seagreen;
+  text-align: center;
+}
+
+.error {
+  background-color: red;
+  text-align: center;
 }

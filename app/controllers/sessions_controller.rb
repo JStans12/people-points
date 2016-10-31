@@ -5,14 +5,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(name: params[:name])
-    if @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect_to users_path
-    else
-      flash[:error] = "Try again dingus!"
-      render :new
+    if @user = User.find_by(name: params[:name])
+      if @user.authenticate(params[:password])
+        session[:user_id] = @user.id
+        return redirect_to users_path
+      end
     end
+    flash[:error] = "Try again dingus!"
+    redirect_to login_path
   end
 
   def destroy

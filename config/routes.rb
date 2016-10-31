@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   root to: redirect('/users')
-  resources :users, only: [:index, :show, :create] do
+  resources :users, only: [:index, :show, :create, :update] do
     resources :endorsements, only: [:new, :create]
+  end
+
+  namespace :admin do
+    resources :users, only: [:index]
   end
 
   get '/login', to: 'sessions#new'
