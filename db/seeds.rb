@@ -16,7 +16,7 @@ militia = Reward.create(name: "berserker", image_link: "http://vignette3.wikia.n
 burrito = Reward.create(name: "burrito", image_link: "http://www.moes.com/public/images/food/junior-burritos/art-vandalay-jr.jpg")
 
 USERS.each do |user|
-  User.create(name: user, password: "password", points: 10, tokens: 0, rewards: [militia])
+  User.create(name: user, password: "password", points: 10, tokens: 0, rewards: [])
 end
 
 User.find_by(name: "Daniel").rewards << poop
